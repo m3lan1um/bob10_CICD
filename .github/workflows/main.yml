@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      python-version: [3.6, 3.7, 3.8, 3.9]
 
     steps:    
       # 우리 코드 체크아웃(가상 머신에 우리 코드 다운로드 (git clone))
@@ -24,7 +26,7 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@v2
         with: 
-          python-version: 3.7
+          python-version: $({ matrix.python-version })
 
       # 필요 소프트웨어 패키지 설치 
       - name: Install pip, pytest, flake8
