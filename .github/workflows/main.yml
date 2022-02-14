@@ -27,7 +27,7 @@ jobs:
       - name: Setup python
         uses: actions/setup-python@v2
         with: 
-          python-version: $({ matrix.python-version })
+          python-version: ${{ matrix.python-version }}
 
       # 필요 소프트웨어 패키지 설치 
       - name: Install pip, pytest, flake8
