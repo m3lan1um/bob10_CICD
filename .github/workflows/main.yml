@@ -39,7 +39,7 @@ jobs:
       # 코드 가독성/일관성 향상 
       - name: Linting with flake8
         run: 
-          flake8 . --count --max-complexity=10
+          flake8 . --count --max-complexity=10 --max-line-length=127 --statistics 
 
       # 파이썬 유닛 테스트를 돌릴 거임
       - name: Run my unittest
