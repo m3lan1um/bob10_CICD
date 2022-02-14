@@ -20,5 +20,19 @@ jobs:
       - name: Check directory
         run: ls -al
 
-      # 우분투 위에 패키지 설치 
+      # 우분투 위에 필요한 언어/프레임워크/환경 설치 
+      - name: Setup python
+        uses: actions/setup-python@v2
+        with: 
+          python-version: 3.7
+
+      # 필요 소프트웨어 패키지 설치 
+      - name: Install pip, pytest
+        run: | 
+          python -m pip install --upgrade pip
+          pip install pytest
+
       # 파이썬 유닛 테스트를 돌릴 거임
+      - name: Run my unittest
+        run: 
+          pytest  
